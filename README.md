@@ -1,4 +1,4 @@
-# NAS Server With Orange Pi
+# NAS & FTP Server With Orange Pi
 
 This guide provides step-by-step instructions to set up OpenMediaVault (OMV6) on an Orange Pi Zero 2 running Debian Linux.
 
@@ -175,6 +175,51 @@ To access the shared folder directly:
 - Log in to server:
 - Username: orangepi and the password that have been set earlier.
 
+   
+   
+   
+# FTP Setup
+
+## First Follow/Read the NAS Setup
+
+### Step 1: Install the FTP Plugin
+
+1. Log in to OpenMediaVault's Web Interface.
+
+2. **Go to Plugins**:
+   - Navigate to:
+     ```
+     System -> Plugins
+     ```
+
+3. **Search for the FTP Plugin**:
+   - In the search box, type `openmediavault-ftp`.
+
+4. **Install the FTP Plugin**:
+   - Select the `openmediavault-ftp` plugin from the list and click the **Install** button.
+
+### Step 2: Enable and Configure FTP Service
+
+1. **Go to Services**:
+   - After the plugin is installed, navigate to:
+     ```
+     Services -> FTP -> Settings
+     ```
+
+2. **Enable and Configure FTP**:
+   - Enable the FTP service and configure settings like port, maximum clients, etc.
+   - Click **Save**.
+
+### Last Step: Share the FTP
+
+1. **Go to Services**:
+   - Navigate to:
+     ```
+     Services -> FTP -> Shares
+     ```
+
+2. **Enable FTP Sharing**:
+   - Enable FTP shares and click **Save**.
    
 
 
