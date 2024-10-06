@@ -1,0 +1,115 @@
+SetUp:
+
+Using OpenMediaVault(OMV6)
+  -- Debian Linux Based
+
+Download :
+Orangepizero2_3.0.6_debian_bullseye_server_linux
+From Orange Pi Zero 2 official website
+
+
+Download :
+Rufus Burning Software
+
+
+Extract image file from the downloaded file and then burn into the sd card using Rufus software by selecting the particular SD card.
+
+
+Connect the Orange Pi To Router using LAN Cable. 
+-> Login to Router Admin Panel and find out the IP address of the Orange PI
+-> Go to IP & Mac Binding Option and check on for the orange pi so that the IP address will remain same all the time
+
+
+install PuTTy:
+open puTTy -> Give the Orange pi IP address -> Hit Open -> Alert Message -> Click Accept -> Then Give the UserName & Password
+
+username: root + Enter
+password: orangepi + Enter
+
+
+
+
+Install the latest Updates for Davian OS:
+
+sudo apt update
+sudo apt upgrade
+
+
+Install OpenMediaVault:
+After going to this link you will get installation guide :
+https://github.com/OpenMediaVault-Plugin-Developers/installScript
+
+-> 
+
+Copy this code from the previous link:
+sudo wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+
+->
+
+Paste it to the puTTy Terminal and Hit Enter...
+
+-> If LogOut, then login ... To check server is running or not :
+Command: sudo service nginx status
+
+
+
+For Login to OMV:
+Link: IP_OF_PI/#/login
+username: admin
+password: openmediavault  + Enter
+
+
+For Password Change:
+Click Profile Icon from the Right Top Corner and then click on Change Password
+
+
+For Deleting Data:
+Login -> Storage -> Disks -> Select The Disk -> Click On Wipe Icon -> Click On Confirm -> Hit the Yes Button
+
+
+Creating New File System:
+Login -> Storage -> File Systems -> Click on Add Icon -> Select EXT4 or Newer -> Select The Drive -> Hit Save Button..
+Note:
+It take some time according to the disk size....
+
+
+
+For Mounting File Systems:
+Login -> Storage -> File Systems -> Mount Icon Click -> Select The Drive -> Selecting the Warning Threshold -> Hit Save Button  ->  click on Tik Mark on the Pending Configuration changes..
+
+
+Work For Shared Folder:
+Login -> Storage -> Shared Folders -> Click Create Icon -> Give The Drive Name -> Select The Drive -> Hit Save Button
+-> Then click on Permission Icon -> Check the Read/Write for both User and Group -> Hit Save -> click on Tik Mark on the Pending Configuration changes..
+
+
+Settings For Mounting Drive To Windows/Mac:
+Login -> Services -> SMB/CIFS -> Settings -> Click Enabled in WORKGROUP -> Hit Save
+
+Login -> Services -> SMB/CIFS -> Shares -> Click on Create Button -> Select The Drive -> Hit Save -> click on Tik Mark on the Pending Configuration changes..
+
+
+
+
+Mounting As Network Storage:
+
+Go To:
+Login -> Users -> Users -> Select orangepi -> Click on Edit icon -> set Password & Conform Password -> Hit Save..
+
+
+Now we can access the drive:
+\\Orange_Pi_Ip
+For example: \\192.168.0.226
+
+For direct into the drive:
+\\192.168.0.226\drive_name
+
+
+
+
+
+
+
+
+
+ 
