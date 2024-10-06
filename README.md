@@ -3,11 +3,10 @@
 This guide provides step-by-step instructions to set up OpenMediaVault (OMV6) on an Orange Pi Zero 2 running Debian Linux.
 
 ## Watch Server Setup Output
-[![](https://img.youtube.com/vi/G83z7NtUfuE/0.jpg)](https://www.youtube.com/watch?v=G83z7NtUfuE)
+[![](https://img.youtube.com/vi/G83z7NtUfuE/0.jpg)](https://www.youtube.com/watch?v=G83z7NtUfuE){:target="_blank"}
 
-## Watch Full Server Setup Video:
-[![](https://img.youtube.com/vi/I7mPZj1S_iA/0.jpg)](https://www.youtube.com/watch?v=I7mPZj1S_iA)
-
+## Watch Full Server Setup Video
+[![](https://img.youtube.com/vi/I7mPZj1S_iA/0.jpg)](https://www.youtube.com/watch?v=I7mPZj1S_iA){:target="_blank"}
 
 
 
@@ -233,5 +232,5 @@ To access the shared folder directly:
 
 
 
-<p align="center"><span style="color: #FF0000; background-color: #ADD8E6; padding: 5px; border-radius: 5px;">Designed By Plaban Das</span></p>
+<p align="center"><span style="color: #FF0000; background-color: #ADD8E6; padding: 5px; border-radius: 5px;"> **Designed By Plaban** Das</span></p>
 
