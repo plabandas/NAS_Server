@@ -3,11 +3,14 @@
 This guide provides step-by-step instructions to set up OpenMediaVault (OMV6) on an Orange Pi Zero 2 running Debian Linux.
 
 ## Watch Server Setup Output
-[![](https://img.youtube.com/vi/G83z7NtUfuE/0.jpg)](https://www.youtube.com/watch?v=G83z7NtUfuE){:target="_blank"}
+<a href="https://www.youtube.com/watch?v=G83z7NtUfuE" target="_blank">
+  <img src="https://img.youtube.com/vi/G83z7NtUfuE/0.jpg" alt="Watch Server Setup Output">
+</a>
 
 ## Watch Full Server Setup Video
-[![](https://img.youtube.com/vi/I7mPZj1S_iA/0.jpg)](https://www.youtube.com/watch?v=I7mPZj1S_iA){:target="_blank"}
-
+<a href="https://www.youtube.com/watch?v=I7mPZj1S_iA" target="_blank">
+  <img src="https://img.youtube.com/vi/I7mPZj1S_iA/0.jpg" alt="Watch Full Server Setup Video">
+</a>
 
 
 ## Prerequisites
