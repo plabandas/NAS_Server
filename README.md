@@ -128,10 +128,11 @@ Note: This may take some time depending on disk size.
 **Mount the File System**
 - In Storage > File Systems, select the file system.
 - Click on the Mount icon.
+- Select the drive
 - Set the warning threshold if desired.
 - Click Save.
 - Apply the pending configuration changes by clicking the checkmark icon. 
-- 
+
 
 
 ### 11. Create a Shared Folder
@@ -180,7 +181,7 @@ To access the shared folder directly:
     \\192.168.0.226\drive_name
 ```
 - Log in to server:
-- Username: orangepi and the password that have been set earlier.
+- Username: orangepi and the password that have been set earlier at step 13.
 
    
    
@@ -231,5 +232,5 @@ To access the shared folder directly:
 
 
 
-<p align="center"><span style="color: #FF0000; background-color: #ADD8E6; padding: 5px; border-radius: 5px;"> **Designed By Plaban** Das</span></p>
+<p align="center"><span style="color: #FF0000; background-color: #ADD8E6; padding: 5px; border-radius: 5px;"> **Designed By Plaban Das**</span></p>
 
