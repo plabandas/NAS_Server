@@ -1,0 +1,24 @@
+First Follow/Read the NAS Setup
+
+
+Step 1: Install the FTP Plugin
+Log in to OpenMediaVault's Web Interface
+
+Go to Plugins:
+Go To
+System -> Plugins.
+Search for the FTP Plugin:
+In the search box, type openmediavault-ftp.
+
+Install the FTP Plugin:
+Select the openmediavault-ftp plugin from the list and click the Install button. 
+
+Step 2: Enable and Configure FTP Service
+Go to Services:
+After the plugin is installed, Go to
+Services -> FTP -> Settings -> Enable with configuration (port, max clients, etc.) -> Hit Save 
+
+
+Last of all: 
+Share the FTP..
+Services -> FTP -> Shares -> Enable -> Save
