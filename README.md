@@ -22,6 +22,7 @@ This guide provides step-by-step instructions to set up OpenMediaVault (OMV6) on
 
 - **Software:**
   - [Orangepizero2_3.0.6_debian_bullseye_server_linux](https://www.orangepi.org/)
+  - [Orangepizero2_3.1.0_debian_bookworm_server_linux6.1.31](https://romhub.io/ISO/Orange%20Pi/Orange%20Pi%20Zero2/debian/Orangepizero2_3.1.0_debian_bookworm_server_linux6.1.31.7z)
   - [Rufus](https://rufus.ie/) burning software
   - [PuTTY](https://www.putty.org/) SSH client
 
@@ -30,7 +31,8 @@ This guide provides step-by-step instructions to set up OpenMediaVault (OMV6) on
 ### 1. Download Required Files
 
 - **OS Image:**
-  - Download `Orangepizero2_3.0.6_debian_bullseye_server_linux` from the official [Orange Pi Zero 2 website](https://www.orangepi.org/).
+  - ❌ Download (Debian 11) `Orangepizero2_3.0.6_debian_bullseye_server_linux` from the official [Orange Pi Zero 2 website](https://www.orangepi.org/).
+  - ✅ Download (Debian 12) `Orangepizero2_3.1.0_debian_bookworm_server_linux6.1.31` from the [Third Party Website](https://romhub.io/ISO/Orange%20Pi/Orange%20Pi%20Zero2/debian/Orangepizero2_3.1.0_debian_bookworm_server_linux6.1.31.7z).
 
 - **Rufus:**
   - Download Rufus burning software from [here](https://rufus.ie/).
@@ -228,7 +230,118 @@ To access the shared folder directly:
 
 2. **Enable FTP Sharing**:
    - Enable FTP shares and click **Save**.
+
+
+#
+#
+# Quick Setup After System Crash
+#
+## 1. Prepare the SD Card
+ 
+- Use Rufus to burn the image to the SD card:
+  - Open Rufus.
+  - Select the SD card.
+  - Choose the image file `Orangepizero2_3.1.0_debian_bookworm_server_linux6.1.31`.
+  - Click **Start** to begin the burning process.
+
+## 2. Connect the Orange Pi to the Network
+
+- Insert the SD card into the Orange Pi Zero 2.
+- Connect the Orange Pi to your router using a LAN cable.
+- Power on the Orange Pi.
    
+## 3. Access the Orange Pi via SSH
+
+- Install PuTTY from [here](https://www.putty.org/).
+- Open PuTTY.
+- Enter the Orange Pi's IP address.
+- Click **Open**.
+- Accept any security alerts.
+- Log in with the following credentials:
+- **Username: root**
+- **Password: orangepi**
+
+
+## 4. Update the Debian OS
+
+Run the following commands:
+
+```bash
+sudo apt update
+sudo apt upgrade
+```
+
+
+## 5. Install OpenMediaVault
+
+- Follow the installation guide from the [OMV install script GitHub repository](https://github.com/OpenMediaVault-Plugin-Developers/installScript).
+
+
+- Run the following commands:
+
+```bash
+sudo wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+```
+- If logged out, log back in.
+- Check if the server is running:
+- Is OpenMediaVault available at http://IP_OF_PI/#/login   ???
+
+## 6. Access the OpenMediaVault Web Interface
+
+- Navigate to http://IP_OF_PI/#/login in a web browser.
+- Log in with:
+```bash 
+Username: admin
+Password: openmediavault
+```
+ 
+### 6.1 *Set Up User Access*
+- Go to Users > Users.
+- Select the orangepi user.
+- Click on the Edit icon.
+- Set a new password.
+- Click Save.
+
+
+### 6.2 *Mount the Existing File System*
+- In Storage > File Systems, select the file system.
+- Click on the Mount icon.
+- Select the drive
+- Set the warning threshold if desired.
+- Click Save.
+- Apply the pending configuration changes by clicking the checkmark icon. 
+
+
+### 6.3 *Configure SMB/CIFS for Network Sharing*
+- Navigate to Services > **SMB/CIFS > Settings**.
+- Enable SMB/CIFS by checking Enabled.
+- Ensure the WORKGROUP is set correctly.
+- Click Save.
+- Go to Services > **SMB/CIFS > Shares**.
+- Click on the Create button.
+- Select the shared folder.
+- Click Save.
+- Apply the pending configuration changes.
+
+
+
+### 7. Access the Shared Folder from Windows/Mac
+- Open a file explorer window.
+- Enter the following path:
+```bash
+\\IP_OF_PI
+
+For Example:
+    \\192.168.0.226
+
+To access the shared folder directly:
+    \\192.168.0.226\drive_name
+```
+- Log in to server:
+- Username: orangepi and the password that have been set earlier at step 13.
+
+
+
 
 
 
