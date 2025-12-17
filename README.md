@@ -302,8 +302,21 @@ Password: openmediavault
 - Set a new password.
 - Click Save.
 
+### 6.2. *Create a Shared Folder*  ([Reference](#11-create-a-shared-folder))
+- Go to Storage > Shared Folders.
+- Click on the Create icon.
+- Enter a name for the shared folder.
+- Select the disk.
+- Click Save.
+- Set permissions:
+  - Select the shared folder.
+  - Click on the Permissions icon.
+  - Check Read/Write for both User and Group.
+  - Click Save.
+  - Apply the pending configuration changes.
 
-### 6.2 *Mount the Existing File System* ([Reference](#10-prepare-the-storage-disk))
+
+### 6.3 *Mount the Existing File System* ([Reference](#10-prepare-the-storage-disk))
 - In Storage > File Systems, select the file system.
 - Click on the Mount icon.
 - Select the drive
@@ -312,7 +325,7 @@ Password: openmediavault
 - Apply the pending configuration changes by clicking the checkmark icon. 
 
 
-### 6.3 *Configure SMB/CIFS for Network Sharing* ([Reference](#12-configure-smbcifs-for-network-sharing))
+### 6.4 *Configure SMB/CIFS for Network Sharing* ([Reference](#12-configure-smbcifs-for-network-sharing))
 - Navigate to Services > **SMB/CIFS > Settings**.
 - Enable SMB/CIFS by checking Enabled.
 - Ensure the WORKGROUP is set correctly.
