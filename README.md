@@ -26,7 +26,7 @@ This guide provides step-by-step instructions to set up OpenMediaVault (OMV6) on
   - [Rufus](https://rufus.ie/) burning software
   - [PuTTY](https://www.putty.org/) SSH client
 
-## Setup Steps
+## Setup Steps ([Quick Setup After System Crash](#quick-setup-after-system-crash))
 
 ### 1. Download Required Files
 
@@ -236,7 +236,7 @@ To access the shared folder directly:
 #
 # Quick Setup After System Crash
 #
-## 1. Prepare the SD Card
+## 1. Prepare the SD Card ([Reference](#2-prepare-the-sd-card))
  
 - Use Rufus to burn the image to the SD card:
   - Open Rufus.
@@ -244,13 +244,13 @@ To access the shared folder directly:
   - Choose the image file `Orangepizero2_3.1.0_debian_bookworm_server_linux6.1.31`.
   - Click **Start** to begin the burning process.
 
-## 2. Connect the Orange Pi to the Network
+## 2. Connect the Orange Pi to the Network ([Reference](#3-connect-the-orange-pi-to-the-network))
 
 - Insert the SD card into the Orange Pi Zero 2.
 - Connect the Orange Pi to your router using a LAN cable.
 - Power on the Orange Pi.
    
-## 3. Access the Orange Pi via SSH
+## 3. Access the Orange Pi via SSH ([Reference](#5-access-the-orange-pi-via-ssh))
 
 - Install PuTTY from [here](https://www.putty.org/).
 - Open PuTTY.
@@ -262,7 +262,7 @@ To access the shared folder directly:
 - **Password: orangepi**
 
 
-## 4. Update the Debian OS
+## 4. Update the Debian OS ([Reference](#6-update-the-debian-os))
 
 Run the following commands:
 
@@ -272,7 +272,7 @@ sudo apt upgrade
 ```
 
 
-## 5. Install OpenMediaVault
+## 5. Install OpenMediaVault ([Reference](#7-install-openmediavault))
 
 - Follow the installation guide from the [OMV install script GitHub repository](https://github.com/OpenMediaVault-Plugin-Developers/installScript).
 
@@ -286,7 +286,7 @@ sudo wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript
 - Check if the server is running:
 - Is OpenMediaVault available at http://IP_OF_PI/#/login   ???
 
-## 6. Access the OpenMediaVault Web Interface
+## 6. Access the OpenMediaVault Web Interface ([Reference](#8-access-the-openmediavault-web-interface))
 
 - Navigate to http://IP_OF_PI/#/login in a web browser.
 - Log in with:
@@ -295,7 +295,7 @@ Username: admin
 Password: openmediavault
 ```
  
-### 6.1 *Set Up User Access*
+### 6.1 *Set Up User Access* ([Reference](#13-set-up-user-access))
 - Go to Users > Users.
 - Select the orangepi user.
 - Click on the Edit icon.
@@ -303,7 +303,7 @@ Password: openmediavault
 - Click Save.
 
 
-### 6.2 *Mount the Existing File System*
+### 6.2 *Mount the Existing File System* ([Reference](#10-prepare-the-storage-disk))
 - In Storage > File Systems, select the file system.
 - Click on the Mount icon.
 - Select the drive
@@ -312,7 +312,7 @@ Password: openmediavault
 - Apply the pending configuration changes by clicking the checkmark icon. 
 
 
-### 6.3 *Configure SMB/CIFS for Network Sharing*
+### 6.3 *Configure SMB/CIFS for Network Sharing* ([Reference](#12-configure-smbcifs-for-network-sharing))
 - Navigate to Services > **SMB/CIFS > Settings**.
 - Enable SMB/CIFS by checking Enabled.
 - Ensure the WORKGROUP is set correctly.
@@ -325,7 +325,7 @@ Password: openmediavault
 
 
 
-### 7. Access the Shared Folder from Windows/Mac
+### 7. Access the Shared Folder from Windows/Mac ([Reference](#14-access-the-shared-folder-from-windowsmac))
 - Open a file explorer window.
 - Enter the following path:
 ```bash
