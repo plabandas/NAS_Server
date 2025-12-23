@@ -2,6 +2,62 @@
 
 This guide provides step-by-step instructions to set up OpenMediaVault (OMV6) on an Orange Pi Zero 2 running Debian Linux.
 
+<details>
+<summary><strong><big>Table of Contents</big></strong></summary>
+
+<!-- TOC -->
+- [Watch Server Setup Output](#watch-server-setup-output)
+- [Watch Full Server Setup Video](#watch-full-server-setup-video)
+- [Prerequisites](#prerequisites)
+- [Setup Steps (Quick Setup After System Crash)](#setup-steps-quick-setup-after-system-crash)
+  - [1. Download Required Files](#1-download-required-files)
+  - [2. Prepare the SD Card](#2-prepare-the-sd-card)
+  - [3. Connect the Orange Pi to the Network](#3-connect-the-orange-pi-to-the-network)
+  - [4. Assign a Static IP Address](#4-assign-a-static-ip-address)
+  - [5. Access the Orange Pi via SSH](#5-access-the-orange-pi-via-ssh)
+  - [6. Update the Debian OS](#6-update-the-debian-os)
+  - [7. Install OpenMediaVault](#7-install-openmediavault)
+  - [8. Access the OpenMediaVault Web Interface](#8-access-the-openmediavault-web-interface)
+  - [9. Change the Default Password](#9-change-the-default-password)
+  - [10. Prepare the Storage Disk](#10-prepare-the-storage-disk)
+  - [11. Create a Shared Folder](#11-create-a-shared-folder)
+  - [12. Configure SMB/CIFS for Network Sharing](#12-configure-smbcifs-for-network-sharing)
+  - [13. Set Up User Access](#13-set-up-user-access)
+  - [14. Access the Shared Folder from Windows/Mac](#14-access-the-shared-folder-from-windowsmac)
+- [FTP Setup](#ftp-setup)
+  - [First Follow/Read the NAS Setup](#first-followread-the-nas-setup)
+  - [Step 1: Install the FTP Plugin](#step-1-install-the-ftp-plugin)
+  - [Step 2: Enable and Configure FTP Service](#step-2-enable-and-configure-ftp-service)
+  - [Last Step: Share the FTP](#last-step-share-the-ftp)
+- [Quick Setup After System Crash](#quick-setup-after-system-crash)
+  - [1. Prepare the SD Card (Reference)](#1-prepare-the-sd-card-reference)
+  - [2. Connect the Orange Pi to the Network (Reference)](#2-connect-the-orange-pi-to-the-network-reference)
+  - [3. Access the Orange Pi via SSH (Reference)](#3-access-the-orange-pi-via-ssh-reference)
+  - [4. Update the Debian OS (Reference)](#4-update-the-debian-os-reference)
+  - [5. Install OpenMediaVault (Reference)](#5-install-openmediavault-reference)
+  - [6. Access the OpenMediaVault Web Interface (Reference)](#6-access-the-openmediavault-web-interface-reference)
+    - [6.1 Set Up User Access (Reference)](#61-set-up-user-access-reference)
+    - [6.2 Create a Shared Folder (Reference)](#62-create-a-shared-folder-reference)
+    - [6.3 Mount the Existing File System (Reference)](#63-mount-the-existing-file-system-reference)
+    - [6.4 Configure SMB/CIFS for Network Sharing (Reference)](#64-configure-smbcifs-for-network-sharing-reference)
+  - [7. Access the Shared Folder from Windows/Mac (Reference)](#7-access-the-shared-folder-from-windowsmac-reference)
+- [Remote Connection With Tailscale](#remote-connection-with-tailscale)
+  - [Create Tailscale Account](#create-tailscale-account)
+  - [Install Tailscale In Orange PI](#install-tailscale-in-orange-pi)
+  - [Install Tailscale on Client Devices](#install-tailscale-on-client-devices)
+    - [For Windows:](#for-windows)
+    - [For Mobile Devices (iOS/Android):](#for-mobile-devices-iosandroid)
+  - [Access NAS Remotely via Tailscale](#access-nas-remotely-via-tailscale)
+    - [Access OpenMediaVault Web Interface](#access-openmediavault-web-interface)
+    - [Access SMB/CIFS Shares Remotely](#access-smbcifs-shares-remotely)
+    - [Access FTP Remotely](#access-ftp-remotely)
+  - [Additional Tailscale Configuration (Not Mandatory)](#additional-tailscale-configuration-not-mandatory)
+    - [Enable Tailscale to Start on Boot](#enable-tailscale-to-start-on-boot)
+    - [Troubleshooting](#troubleshooting)
+<!-- /TOC -->
+
+</details>
+
 ## Watch Server Setup Output
 [![](https://img.youtube.com/vi/G83z7NtUfuE/0.jpg)](https://www.youtube.com/watch?v=G83z7NtUfuE)
 
@@ -232,10 +288,10 @@ To access the shared folder directly:
    - Enable FTP shares and click **Save**.
 
 
-#
-#
+---
+
 # Quick Setup After System Crash
-#
+
 ## 1. Prepare the SD Card ([Reference](#2-prepare-the-sd-card))
  
 - Use Rufus to burn the image to the SD card:
@@ -493,7 +549,7 @@ sudo tailscale ip -4
 
 3. **Connect** to access your FTP shares remotely.
 
-## Additional Tailscale Configuration   ***(Not Mandatory)***
+## Additional Tailscale Configuration (Not Mandatory)
 
 ### Enable Tailscale to Start on Boot
 
