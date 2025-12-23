@@ -493,7 +493,7 @@ sudo tailscale ip -4
 
 3. **Connect** to access your FTP shares remotely.
 
-## Additional Tailscale Configuration
+## Additional Tailscale Configuration   ***(Not Mandatory)***
 
 ### Enable Tailscale to Start on Boot
 
