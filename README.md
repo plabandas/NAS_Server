@@ -357,6 +357,187 @@ To access the shared folder directly:
 
 
 
+---
+
+# Remote Connection With Tailscale
+
+## Create Tailscale Account
+
+1. Go to [Tailscale website](https://tailscale.com/).
+2. Click on **Sign Up** or **Get Started**.
+3. Create an account using:
+   - Your email address, or
+   - Sign in with Google, Microsoft, or GitHub
+4. Verify your email address if required.
+5. Complete the account setup process.
+
+## Install Tailscale In Orange PI
+
+1. **SSH: Login your Orange PI** (as described in [Step 5: Access the Orange Pi via SSH](#5-access-the-orange-pi-via-ssh)).
+
+2. **Install Tailscale** by running the following command:
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+```
+
+3. **Start Tailscale service**:
+
+```bash
+sudo tailscale up
+```
+
+   Or alternatively:
+
+```bash
+tailscale up
+```
+
+4. **Authenticate the Orange PI**:
+   - The **command will provide a URL** that you need to visit in a web browser. **Note: Make sure there are no spaces in the URL.**
+   - Open the URL on any device (your computer or phone).
+   - Sign in with your Tailscale account.
+   - Click **Connect** to authorize this device.
+   - The terminal will show **Success authentication**. 
+
+5. **Verify the connection**:
+
+```bash
+sudo tailscale status
+```
+
+   - You should see your Orange PI listed with its Tailscale IP address (usually starts with `100.x.x.x`).
+
+6. **Get the Tailscale IP address**:
+
+```bash
+sudo tailscale ip -4
+```
+
+   - Note this IP address (e.g., `100.64.1.2`) - you'll use it to access your NAS remotely.
+   - You can also view it from your account after logging in from any browser. 
+
+## Install Tailscale on Client Devices
+
+### For Windows:
+
+1. **Download Tailscale**:
+   - Go to [Tailscale Downloads](https://tailscale.com/download).
+   - Download the Windows installer.
+
+2. **Install Tailscale**:
+   - Run the installer.
+   - Follow the installation wizard.
+
+3. **Sign in**:
+   - Open Tailscale from the Start menu or system tray.
+   - Sign in with your Tailscale account.
+   - The device will be added to your Tailscale network.
+
+### For Mobile Devices (iOS/Android):
+
+1. **Download Tailscale**:
+   - Install Tailscale from App Store (iOS) or Google Play Store (Android).
+
+2. **Sign in**:
+   - Open the app and sign in with your Tailscale account.
+   - The device will be added to your Tailscale network.
+
+## Access NAS Remotely via Tailscale
+
+### Access OpenMediaVault Web Interface
+
+1. **Get the Tailscale IP (Public IP)** of your Orange PI:
+   - SSH into Orange PI and run: `sudo tailscale ip -4`
+   - Or check the Tailscale admin console at [https://login.tailscale.com/admin/machines](https://login.tailscale.com/admin/machines)
+
+2. **Access the web interface**:
+   - Open a web browser on any device connected to your Tailscale network.
+   - Navigate to: `http://TAILSCALE_IP/#/login`
+   - Example: `http://100.64.1.2/#/login`
+   - Log in with your OpenMediaVault credentials.
+
+### Access SMB/CIFS Shares Remotely
+
+1. **On Windows**:
+   - Open File Explorer.
+   - In the address bar, enter:
+   ```bash
+   \\TAILSCALE_IP
+   
+   For Example:
+       \\100.64.1.2
+   
+   To access the shared folder directly:
+       \\100.64.1.2\drive_name
+   ```
+   - Enter your NAS credentials when prompted:
+     - Username: `orangepi` (or your configured username)
+     - Password: (the password you set earlier)
+
+2. **On Mobile Devices**:
+   - Use a file manager app that supports SMB (e.g., Files app on iOS, or apps like "File Manager" on Android).
+   - Connect to: `smb://TAILSCALE_IP`
+   - Enter your credentials.
+
+### Access FTP Remotely
+
+1. **Get the Tailscale IP** of your Orange PI.
+
+2. **Use an FTP client** (e.g., FileZilla, WinSCP, or built-in FTP in file managers):
+   - **Host**: `TAILSCALE_IP` (e.g., `100.64.1.2`)
+   - **Port**: `21` (default FTP port)
+   - **Protocol**: FTP
+   - **Username**: `orangepi` (or your configured username)
+   - **Password**: (the password you set earlier)
+
+3. **Connect** to access your FTP shares remotely.
+
+## Additional Tailscale Configuration
+
+### Enable Tailscale to Start on Boot
+
+1. **SSH into Orange PI**.
+
+2. **Enable and start Tailscale service**:
+
+```bash
+sudo systemctl enable tailscaled
+sudo systemctl start tailscaled
+```
+
+3. **Verify it's running**:
+
+```bash
+sudo systemctl status tailscaled
+```
+
+### Troubleshooting
+
+**If Tailscale connection fails:**
+
+1. **Check Tailscale status**:
+   ```bash
+   sudo tailscale status
+   ```
+
+2. **Restart Tailscale service**:
+   ```bash
+   sudo systemctl restart tailscaled
+   ```
+
+3. **Re-authenticate if needed**:
+   ```bash
+   sudo tailscale up
+   ```
+
+4. **Check firewall settings**:
+   - Ensure Tailscale is allowed through any firewall on the Orange PI.
+   - Tailscale typically uses port 41641/UDP.
+
+5. **Verify both devices are online**:
+   - Check that both your Orange PI and client device show as "Online" in the Tailscale admin console.
+
 
 <p align="center"><span style="color: #FF0000; background-color: #ADD8E6; padding: 5px; border-radius: 5px;"> **Designed By Plaban Das**</span></p>
 
